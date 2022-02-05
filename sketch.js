@@ -20,7 +20,7 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES);
   noStroke();
-  frameRate(60);
+  frameRate(30);
   maxR = max(width, height) * 0.45;
 
   background("#FFF");
