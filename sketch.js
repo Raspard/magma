@@ -34,7 +34,7 @@ function draw() {
   let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
   let x = R * cos(t) + width / 2;
   let y = R * sin(t) + height / 2;
-  objs.push(new Obj(x, y));
+  if(objs.length>30){}else{objs.push(new Obj(x, y));}
 
   if (mouseIsPressed) {
     
