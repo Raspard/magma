@@ -211,7 +211,7 @@ body {
   bottom: 67px;
   right: 127px;
   position: absolute;
-  width: 100px;
+  width: 80px;
   z-index: 5;
   transform: scale(0);
   display: none;
@@ -228,7 +228,7 @@ body {
   position: absolute;
   border-radius: 50%;
   bottom: 58px;
-  right: 245px;
+  right: 220px;
   z-index: 5;
   font-size: 1.2em;
   display: none;
