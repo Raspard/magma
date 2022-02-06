@@ -1,9 +1,7 @@
 let img;
 function preload() { 
-img = loadImage('img/logo_magma_r.png');
-canvasTexture = loadImage("img/canvas.jpg"); }
+img = loadImage('img/logo_magma_r.png');}
 var lastImg;
-let canvasTexture;
 
 let objs = [];
 let objsNum = 360;
@@ -20,24 +18,29 @@ function setup() {
   createCanvas(windowWidth, windowHeight);
   angleMode(DEGREES);
   noStroke();
-  frameRate(30);
+  frameRate(60);
   maxR = max(width, height) * 0.45;
-
-  background("#FFF");
+ // background("#FFF");
 }
+
 
 function draw() {
 
+  if(windowWidth>600){
+   dibujo();
+  }
+  else{dibujo_mobil();noLoop();}
+}
 
-  //background(0);
+function dibujo(){
+
   let R = map(noise(nt * 0.01, nR), 0, 1, 0, maxR);
   let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
   let x = R * cos(t) + width / 2;
   let y = R * sin(t) + height / 2;
-  if(objs.length>30){}else{objs.push(new Obj(x, y));}
+ if(objs.length>30){}else{objs.push(new Obj(x, y));}
 
   if (mouseIsPressed) {
-    
     feed();
     objs.push(new Obj(mouseX, mouseY));
   }
@@ -56,21 +59,41 @@ function draw() {
 
    t++;
   nt++;
- // imageMode(CENTER);
- // image(img,width/2,height/2,500,300);
-
  lastImg = get();
-  //feed();
+
+} 
+
+
+function dibujo_mobil(){
+
+for(let i=0; i < 2000; i++){
+  let R = map(noise(nt * 0.01, nR), 0, 1, 0, maxR);
+  let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
+  let x = R * cos(t) + width / 2;
+  let y = R * sin(t) + height / 2;
+  objs.push(new Obj(x, y));
+  for (let i = 0; i < objs.length; i++) {
+    objs[i].move();
+    objs[i].display();
   }
+  for (let j = objs.length - 1; j >= 0; j--) {
+    if (objs[j].isFinished()) {
+      objs.splice(j, 1);
+     
+    }
+  }
+   t++;
+  nt++;
+
+  }
+} 
 
 function feed(){
      if (lastImg) {
-    tint(255,255,255, 250);
-   
+    tint(255,255,255, 20);
     image(lastImg,-2,-2,width+5,height+4);
   }
 
-  // lastImg = get();
 }
 
 class Obj {
@@ -117,8 +140,6 @@ class Obj {
   circle(this.pos.x+10, this.pos.y-10, random(5,10));
    fill(0);
   circle(this.pos.x-50, this.pos.y+50, 1);
-
-  
 
   }
 }
