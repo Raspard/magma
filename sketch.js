@@ -12,18 +12,19 @@ let nTheta = 1000;
 const palette = ["#ffdb00", "#ff5e0f", "#ee7b06", "#FFF","#F00"];
 
 function setup() {
-  createCanvas(windowWidth, windowHeight);
+  createMetaTag();
+  createCanvas(window.innerWidth, window.innerHeight);
   angleMode(DEGREES);
   noStroke();
-  frameRate(60);
+  frameRate(30);
   maxR = max(width, height) * 0.45;
-
+ // background("#FFF");
 }
 
 
 function draw() {
 
-  if(windowWidth>700){
+  if(window.innerWidth>700){
    dibujo();
   }
   else{dibujo_mobil();noLoop();}
@@ -53,7 +54,6 @@ function dibujo(){
      
     }
   }
-
   nt++;
  lastImg = get();
 
@@ -62,7 +62,7 @@ function dibujo(){
 
 function dibujo_mobil(){
 
-for(let i=0; i < 1000; i++){
+for(let i=0; i < 2000; i++){
   let R = map(noise(nt * 0.01, nR), 0, 1, 0, maxR);
   let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
   let x = R * cos(t) + width / 2;
@@ -147,4 +147,13 @@ function func(t, num) {
   let B = cos(a - b / num);
 
   return A / B;
+}
+
+function createMetaTag() {
+  let meta = createElement('meta');
+  meta.attribute('name', 'viewport');
+  meta.attribute('content', 'user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height');
+
+  let head = select('head');
+  meta.parent(head);
 }
