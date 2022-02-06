@@ -1,6 +1,3 @@
-let img;
-function preload() { 
-img = loadImage('img/logo_magma_r.png');}
 var lastImg;
 
 let objs = [];
@@ -20,13 +17,13 @@ function setup() {
   noStroke();
   frameRate(60);
   maxR = max(width, height) * 0.45;
- // background("#FFF");
+
 }
 
 
 function draw() {
 
-  if(windowWidth>600){
+  if(windowWidth>700){
    dibujo();
   }
   else{dibujo_mobil();noLoop();}
@@ -57,7 +54,6 @@ function dibujo(){
     }
   }
 
-   t++;
   nt++;
  lastImg = get();
 
@@ -66,7 +62,7 @@ function dibujo(){
 
 function dibujo_mobil(){
 
-for(let i=0; i < 2000; i++){
+for(let i=0; i < 1000; i++){
   let R = map(noise(nt * 0.01, nR), 0, 1, 0, maxR);
   let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
   let x = R * cos(t) + width / 2;
