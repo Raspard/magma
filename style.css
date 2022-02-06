@@ -19,7 +19,7 @@ body {
 .player {
   position: relative;
   background-color: rgba(255, 255, 255, 0.5);
-  background-image: url("http://192.168.0.199/play/img/logo_magma_r.png");
+  background-image: url("https://raspard.github.io/magma/play/img/logo_magma_r.png");
   background-size: 100%;
   background-repeat: no-repeat;
   padding-top: 50px;
