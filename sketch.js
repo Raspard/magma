@@ -1,4 +1,6 @@
 var lastImg;
+var myVar;
+var termino = false;
 
 let objs = [];
 let objsNum = 360;
@@ -21,13 +23,26 @@ function setup() {
  // background("#FFF");
 }
 
+function isReady(){
+  return true;
+}
+function myFunction() {
+  if(termino || isReady()){
+  myVar = setTimeout(showPage, 100);}
+}
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
 
 function draw() {
 
   if(window.innerWidth>700){
    dibujo();
   }
-  else{dibujo_mobil();noLoop();}
+  else{dibujo_mobil();noLoop();
+  }
 }
 
 function dibujo(){
@@ -56,13 +71,14 @@ function dibujo(){
   }
   nt++;
  lastImg = get();
+isReady();
 
 } 
 
 
 function dibujo_mobil(){
 
-for(let i=0; i < 800; i++){
+for(let i=0; i < 2000; i++){
   let R = map(noise(nt * 0.01, nR), 0, 1, 0, maxR);
   let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
   let x = R * cos(t) + width / 2;
@@ -82,6 +98,8 @@ for(let i=0; i < 800; i++){
   nt++;
 
   }
+
+ termino = true;
 } 
 
 function feed(){
