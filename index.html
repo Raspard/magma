@@ -15,12 +15,49 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://raspard.github.io/magma/favicon_io/favicon-16x16.png">
     <link rel="manifest" href="https://raspard.github.io/magma/favicon_io/site.webmanifest">
     <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1,width=device-width,height=device-height">
-</head>
-<body>   
+  
+ <style>
+#loader {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  z-index: 1;
+  width: 120px;
+  height: 120px;
+  margin: -76px 0 0 -76px;
+  border: 16px solid #E0E0E0;
+  border-radius: 50%;
+  border-top: 16px solid #ff5e00;
+  -webkit-animation: spin 2s linear infinite;
+  animation: spin 2s linear infinite;
+}
 
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#myDiv {
+  display: none;
+  text-align: center;
+}
+   
+</style>
+
+</head>
+<body onload="myFunction()" style="margin:0;">
+    <script src="sketch.js"> </script>
+<div id="loader"></div>
+
+<div style="display:none;" id="myDiv">
+
+<div class="container"  >
 <script src="sketch.js"> </script>
- 
-<div class="container">
   <div class="player">
     <div class="like waves-effect waves-light">
       <i class="icon-heart"></i>
@@ -29,10 +66,9 @@
     <ul class="player-info info-one">
       <li>Magma Radio</li>
       <li>EN VIVO</li>
-      
     </ul>
     <ul class="player-info info-two">
-           <li><span id="duration"></span><i></i></li>
+        <li><span id="duration"></span><i></i></li>
     </ul>
     <div id="play-button" class="unchecked">
       <i class="icon icon-play"></i>
@@ -43,15 +79,6 @@
       <div id="pause-button">
         <i class="icon"></i>
       </div>
-      <!--<div class="seek-field">
-        <input id="audioSeekBar" min="0" max="334" step="1" value="0" type="range" oninput="audioSeekBar()" onchange="this.oninput()">
-      </div>
-      <div class="volume-icon">
-        <i class="icon-volume-up"></i>
-      </div>
-      <div class="volume-field">
-        <input type="range" min="0" max="100" value="100" step="1" oninput="audio.volume = this.value/100" onchange="this.oninput()">
-      </div>-->
     </div>
   </div>
   <audio id="audio-player" ontimeupdate="SeekBar()" ondurationchange="CreateSeekBar()" preload="auto" loop>
@@ -59,9 +86,10 @@
 
 <source src=https://us-b4-p-e-az1-audio.cdn.mdstrm.com/live-audio-aw/60a2745ff943100826374a70?aid=60106eadf34de307dd720e7b&amp;pid=A0yog9fHwwm7YYmyZoTFSg3WzMj9baEi&amp;sid=zT4wVeqdPD3orqee2eZKJeiIQh2V6T9r&amp;uid=8qSOdMuMdDuQ231jHyJOYk2mnPHj6ZHD&amp;es=us-b4-p-e-az1-audio.cdn.mdstrm.com&amp;ote=1644091721346&amp;ot=aBpHLYrp5hKGh5gKbAYV8Q&amp;proto=https&amp;pz=us&amp;cP=128000&amp;awCollectionId=60106eadf34de307dd720e7b&amp;liveId=60a2745ff943100826374a70&amp;propertyName=mediastream-player-aspen-pie" type="audio/aac"">
 </audio>
-<!-- partial -->
   <script src='https://code.jquery.com/jquery-2.1.1.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/node-waves/0.7.5/waves.min.js'></script><script  src="./script.js"></script>
+
+</div>
 
 </div>
 
