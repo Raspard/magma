@@ -22,9 +22,11 @@ function setup() {
   maxR = max(width, height) * 0.45;
  // background("#FFF");
 }
-
+function isReady(){
+ return true;
+}
 function myFunction() {
-  if(termino){
+  if(termino || isReady()){
   myVar = setTimeout(showPage, 100);}
 }
 
@@ -68,7 +70,7 @@ function dibujo(){
   }
   nt++;
  lastImg = get();
-termino = true;
+isReady();
 
 } 
 
