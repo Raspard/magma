@@ -23,11 +23,8 @@ function setup() {
  // background("#FFF");
 }
 
-function isReady(){
-  return true;
-}
 function myFunction() {
-  if(termino || isReady()){
+  if(termino){
   myVar = setTimeout(showPage, 100);}
 }
 
@@ -71,7 +68,7 @@ function dibujo(){
   }
   nt++;
  lastImg = get();
-isReady();
+termino = true;
 
 } 
 
