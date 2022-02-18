@@ -27,7 +27,7 @@ function isReady(){
 }
 function myFunction() {
   if(termino || isReady()){
-  myVar = setTimeout(showPage, 100);}
+  myVar = setTimeout(showPage, 500);}
 }
 
 function showPage() {
