@@ -65,26 +65,6 @@ $(document).ready(function() {
   });
 });
 
-function CreateSeekBar() {
-  var seekbar = document.getElementById("audioSeekBar");
-  seekbar.min = 0;
-  seekbar.max = audio.duration;
-  seekbar.value = 0;
-}
-
-function EndofAudio() {
-  document.getElementById("audioSeekBar").value = 0;
-}
-
-function audioSeekBar() {
-  var seekbar = document.getElementById("audioSeekBar");
-  audio.currentTime = seekbar.value;
-}
-
-function SeekBar() {
-  var seekbar = document.getElementById("audioSeekBar");
-  seekbar.value = audio.currentTime;
-}
 
 audio.addEventListener("timeupdate", function() {
   var duration = document.getElementById("duration");
