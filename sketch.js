@@ -77,7 +77,7 @@ isReady();
 
 function dibujo_mobil(){
 
-for(let i=0; i < 2000; i++){
+for(let i=0; i < 800; i++){
   let R = map(noise(nt * 0.01, nR), 0, 1, 0, maxR);
   let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
   let x = R * cos(t) + width / 2;
