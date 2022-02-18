@@ -97,6 +97,3 @@ Waves.init();
 Waves.attach("#play-button", ["waves-button", "waves-float"]);
 Waves.attach("#pause-button", ["waves-button", "waves-float"]);
 
-
-  return description;
-};
