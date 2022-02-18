@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule ^index\.html$ - [L]
+RewriteCond /var/www/html/%{REQUEST_FILENAME} !-f
+RewriteCond /var/www/html/%{REQUEST_FILENAME} !-d
+RewriteRule . /index.html [L]
+</IfModule>
