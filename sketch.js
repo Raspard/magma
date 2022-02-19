@@ -1,4 +1,4 @@
-var lastImg;
+let lastImg;
 var myVar;
 var termino = false;
 
@@ -20,11 +20,12 @@ function setup() {
   noStroke();
   frameRate(30);
   maxR = max(width, height) * 0.45;
- // background("#FFF");
 }
+
 function isReady(){
  return true;
 }
+
 function myFunction() {
   if(termino || isReady()){
   myVar = setTimeout(showPage, 500);}
@@ -45,18 +46,17 @@ function draw() {
 }
 
 function dibujo(){
-
   let R = map(noise(nt * 0.01, nR), 0, 1, 0, maxR);
   let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
   let x = R * cos(t) + width / 2;
   let y = R * sin(t) + height / 2;
+  
  if(objs.length>30){}else{objs.push(new Obj(x, y));}
-
   if (mouseIsPressed) {
     feed();
     objs.push(new Obj(mouseX, mouseY));
   }
-//objs.push(new Obj(mouseX, mouseY));
+  
   for (let i = 0; i < objs.length; i++) {
     objs[i].move();
     objs[i].display();
@@ -65,11 +65,11 @@ function dibujo(){
   for (let j = objs.length - 1; j >= 0; j--) {
     if (objs[j].isFinished()) {
       objs.splice(j, 1);
-     
     }
   }
-  nt++;
- lastImg = get();
+  
+nt++;
+lastImg = get();
 isReady();
 
 } 
@@ -90,14 +90,10 @@ for(let i=0; i < 800; i++){
   for (let j = objs.length - 1; j >= 0; j--) {
     if (objs[j].isFinished()) {
       objs.splice(j, 1);
-     
     }
   }
-   t++;
   nt++;
-
   }
-
  termino = true;
 } 
 
@@ -106,7 +102,6 @@ function feed(){
     tint(255,255,255, 20);
     image(lastImg,-2,-2,width+5,height+4);
   }
-
 }
 
 class Obj {
@@ -145,15 +140,14 @@ class Obj {
 
   display() {
 
-    fill(0);
+   fill(0);
   circle(this.pos.x+50, this.pos.y-50, 1);
   fill(this.c);
   circle(this.pos.x, this.pos.y, random(2,12));
   circle(this.pos.x+10, this.pos.y+10, random(4,20));
   circle(this.pos.x+10, this.pos.y-10, random(5,10));
-   fill(0);
+  fill(0);
   circle(this.pos.x-50, this.pos.y+50, 1);
-
   }
 }
 
