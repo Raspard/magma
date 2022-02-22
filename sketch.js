@@ -1,4 +1,3 @@
-let lastImg;
 var myVar;
 var termino = false;
 
