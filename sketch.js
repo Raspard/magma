@@ -28,7 +28,7 @@ function setup() {
   let fondo4 = loadImage('https://radiomagma.com.ar/img/Movil004.jpg');  
   let fondo5 = loadImage('https://radiomagma.com.ar/img/Movil005.jpg'); 
    
-  fondos = [fondo1,fondo2,fondo3,fondo4,fondo5,fondo6];
+  fondos = [fondo1,fondo2,fondo3,fondo4,fondo5];
   randomImg = random(fondos); 
 }
 
