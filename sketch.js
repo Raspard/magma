@@ -1,5 +1,7 @@
 var myVar;
 var termino = false;
+let fondos = []; 
+let randomImg;
 
 let objs = [];
 let objsNum = 360;
@@ -19,6 +21,15 @@ function setup() {
   noStroke();
   frameRate(30);
   maxR = max(width, height) * 0.45;
+  
+  let fondo1 = loadImage('https://radiomagma.com.ar/img/Movil001.jpg'); 
+  let fondo2 = loadImage('https://radiomagma.com.ar/img/Movil002.jpg');  
+  let fondo3 = loadImage('https://radiomagma.com.ar/img/Movil003.jpg');  
+  let fondo4 = loadImage('https://radiomagma.com.ar/img/Movil004.jpg');  
+  let fondo5 = loadImage('https://radiomagma.com.ar/img/Movil005.jpg'); 
+   
+  fondos = [fondo1,fondo2,fondo3,fondo4,fondo5,fondo6];
+  randomImg = random(fondos); 
 }
 
 function isReady(){
@@ -27,7 +38,7 @@ function isReady(){
 
 function myFunction() {
   if(termino || isReady()){
-  myVar = setTimeout(showPage, 100);}
+  myVar = setTimeout(showPage, 300);}
 }
 
 function showPage() {
@@ -40,7 +51,7 @@ function draw() {
   if(window.innerWidth>700){
    dibujo();
   }
-  else{dibujo_mobil();noLoop();
+  else{ image(randomImg, 0, 0,width,height);
   }
 }
 
