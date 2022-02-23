@@ -30,15 +30,12 @@ function setup() {
    
   fondos = [fondo1,fondo2,fondo3,fondo4,fondo5];
   randomImg = random(fondos); 
-}
-
-function isReady(){
- return true;
+  termino=true;
 }
 
 function myFunction() {
-  if(termino || isReady()){
-  myVar = setTimeout(showPage, 300);}
+  if(termino){
+  myVar = setTimeout(showPage, 500);}
 }
 
 function showPage() {
@@ -80,32 +77,7 @@ function dibujo(){
   
 nt++;
 lastImg = get();
-isReady();
 
-} 
-
-
-function dibujo_mobil(){
-
-for(let i=0; i < 800; i++){
-  let R = map(noise(nt * 0.01, nR), 0, 1, 0, maxR);
-  let t = map(noise(nt * 0.001, nTheta), 0, 1, -360, 360);
-  let x = R * cos(t) + width / 2;
-  let y = R * sin(t) + height / 2;
-  objs.push(new Obj(x, y));
-  for (let i = 0; i < objs.length; i++) {
-    objs[i].move();
-    objs[i].display();
-  }
-  for (let j = objs.length - 1; j >= 0; j--) {
-    if (objs[j].isFinished()) {
-      objs.splice(j, 1);
-    }
-  }
-  nt++;
-  }
-  noLoop();
- termino = true;
 } 
 
 function feed(){
