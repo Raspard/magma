@@ -27,7 +27,7 @@ function isReady(){
 
 function myFunction() {
   if(termino || isReady()){
-  myVar = setTimeout(showPage, 500);}
+  myVar = setTimeout(showPage, 100);}
 }
 
 function showPage() {
@@ -93,6 +93,7 @@ for(let i=0; i < 800; i++){
   }
   nt++;
   }
+  noLoop();
  termino = true;
 } 
 
