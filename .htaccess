@@ -4,4 +4,10 @@ RewriteRule ^index\.html$ - [L]
 RewriteCond /var/www/html/%{REQUEST_FILENAME} !-f
 RewriteCond /var/www/html/%{REQUEST_FILENAME} !-d
 RewriteRule . /index.html [L]
+
+RewriteCond %{HTTP_HOST} ^www.radiomamga.com.ar[NC]
+RewriteRule (.*) https://radiomamga.com.ar/$1 [R=301,L,QSA]
+
+RewriteCond %{HTTPS} off
+RewriteRule (.*) https://radiomamga.com.ar/$1 [R=301,L,QSA]
 </IfModule>
