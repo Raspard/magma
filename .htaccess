@@ -1,6 +1,9 @@
-# Canonical HTTPS/non-WWW
+
+# Canonical https/www
 <IfModule mod_rewrite.c>
-	RewriteCond %{HTTPS} off [OR]
-	RewriteCond %{HTTP_HOST} ^www\.radiomagma\.com.ar [NC]
-	RewriteRule (.*) https://radiomagma.com.ar/$1 [L,R=301]
+	RewriteCond %{HTTPS} off
+	RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+	
+	RewriteCond %{HTTP_HOST} !^www\. [NC]
+	RewriteRule (.*) https://www.%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 </IfModule>
